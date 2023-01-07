@@ -1,6 +1,7 @@
 import React from "react";
 import EducationView from "./EducationView";
 import uniqid from "uniqid";
+import '../styles/Education.css';
 
 export default class Education extends React.Component {
     constructor(props) {
