@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    border-bottom: 1px solid black;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+lable[for="firstName"], #firstName {
+    display: block;
+}
+lable[for="lastName"], #lastName {
+    display: block;
+}
+
+.miscInfo {
+    display: flex;
+    flex-direction: column;
+}

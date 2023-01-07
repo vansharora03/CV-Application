@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/PersonalInfo.css'
 
 
 export default class PersonalInfo extends React.Component {
