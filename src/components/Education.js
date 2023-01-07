@@ -17,7 +17,14 @@ export default class Education extends React.Component {
     }
 
     addEducation() {
-
+        this.setState({
+            educationList : this.state.educationList.concat(this.state.education),
+            education: {
+                school: '',
+                areaOfStudy:'',
+                graduationDate: ''
+            }
+        })
     }
 
     handleChange(e) {
@@ -32,16 +39,17 @@ export default class Education extends React.Component {
 
 
     render() {
+        const {educationList, education} = this.state;
         const {submitted} = this.props;
         const editable = (<div className="qualificationSection">
             <h1 className="title">Education</h1>
-            <EducationView educationList={this.state.educationList}/>
+            <EducationView educationList={educationList}/>
             <form className="educationForm">
-                <label className="schoolLabel">School<input onChange={this.handleChange} id="school"></input></label>
-                <label className="areaOfStudyLabel">Area of Study<input onChange={this.handleChange} id="areaOfStudy"></input></label>
-                <label className="graduationDateLabel">Graduation Date<input onChange={this.handleChange} id="graduationDate" type="date"></input></label>
+                <label className="schoolLabel">School<input value={education.school} onChange={this.handleChange} id="school"></input></label>
+                <label className="areaOfStudyLabel">Area of Study<input value={education.areaOfStudy} onChange={this.handleChange} id="areaOfStudy"></input></label>
+                <label className="graduationDateLabel">Graduation Date<input value={education.graduationDate} onChange={this.handleChange} id="graduationDate" type="date"></input></label>
             </form>
-            <button className="addEducationBtn">Add Education</button>
+            <button onClick={this.addEducation} className="addEducationBtn">Add Education</button>
         </div>)
         const notEditable = (<EducationView educationList={this.state.educationList}/>)
 
