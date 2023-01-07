@@ -8,7 +8,11 @@ export default class EducationView extends React.Component {
     }
 
     render() {
+        //destructuring
         const {educationList} = this.props;
+
+        //map each entry of prop educationList and its props to
+        //elements
         const educationEntries = educationList.map((entry) => {
             return (
                 <div key={entry.id}className="education-entry">
@@ -19,6 +23,8 @@ export default class EducationView extends React.Component {
 
             )
         })
+        
+        //return the rendering of the entries
         return (<div className="EducationView">{educationEntries}</div>)
     }
 }
