@@ -1,5 +1,6 @@
 import React from "react";
 import EducationView from "./EducationView";
+import uniqid from "uniqid";
 
 export default class Education extends React.Component {
     constructor(props) {
@@ -7,6 +8,7 @@ export default class Education extends React.Component {
             this.state = {
                 educationList : [],
                 education: {
+                    id: uniqid(),
                     school: '',
                     areaOfStudy:'',
                     graduationDate: ''
@@ -20,6 +22,7 @@ export default class Education extends React.Component {
         this.setState({
             educationList : this.state.educationList.concat(this.state.education),
             education: {
+                id: uniqid(),
                 school: '',
                 areaOfStudy:'',
                 graduationDate: ''
