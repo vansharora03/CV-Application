@@ -15,7 +15,7 @@ export default class EducationView extends React.Component {
         //elements
         const educationEntries = educationList.map((entry) => {
             return (
-                <div key={entry.id}className="education-entry">
+                <div key={entry.id}className="educationEntry">
                     <h2 key={`schoolNameDisplay-${entry.id}`} className="schoolNameDisplay">{entry.school}</h2>
                     <h3 key={`areaOfStudyDisplay-${entry.id}`} className="areaOfStudyDisplay">{entry.areaOfStudy}</h3>
                     <h3 key={`graduationDateDisplay-${entry.id}`} className="graduationDateDisplay">{entry.graduationDate}</h3>
@@ -23,7 +23,7 @@ export default class EducationView extends React.Component {
 
             )
         })
-        
+
         //return the rendering of the entries
         return (<div className="EducationView">{educationEntries}</div>)
     }
