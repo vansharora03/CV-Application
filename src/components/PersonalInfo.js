@@ -6,6 +6,7 @@ export default class PersonalInfo extends React.Component {
     constructor(props) {
             super(props);
             this.state = {
+                //user info as state object
                 user: {
                     firstName: '',
                     lastName: '',
@@ -17,6 +18,9 @@ export default class PersonalInfo extends React.Component {
             this.handleChange = this.handleChange.bind(this);
     }
 
+    /**depending on input, update the corresponding
+     * state variable of user state
+    */ 
     handleChange(e) {
         this.setState(prevState => ({
             ...prevState,
@@ -31,6 +35,7 @@ export default class PersonalInfo extends React.Component {
 
     render() {
         const { firstName, lastName, email, phone, url } = this.state.user;
+        //element if the prop submitted is false
         const editable = ( <div className="header">
         <div className="name">
             <label htmlFor="firstName">First Name</label>
@@ -50,6 +55,10 @@ export default class PersonalInfo extends React.Component {
             <input onChange={this.handleChange} id="url" value={url}></input>
         </div>
     </div>)
+
+        //element if the prop submitted is true
+        //will display hard-coded uneditable values
+        //from state
         const notEditable = (<div className="header">
         <div className="name">
             <h1 className="firstNameDisplay">{firstName}</h1>
@@ -65,7 +74,8 @@ export default class PersonalInfo extends React.Component {
         </div>
     </div>)
 
-
+        //using ternary operation, determine
+        //which element to render
         return this.props.submitted? notEditable : editable;
     }
 }
