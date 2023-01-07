@@ -9,7 +9,7 @@ export default class EducationView extends React.Component {
 
     render() {
         //destructuring
-        const {educationList} = this.props;
+        const {educationList, deleteEducation} = this.props;
 
         //map each entry of prop educationList and its props to
         //elements
@@ -19,6 +19,7 @@ export default class EducationView extends React.Component {
                     <h2 key={`schoolNameDisplay-${entry.id}`} className="schoolNameDisplay">{entry.school}</h2>
                     <h3 key={`areaOfStudyDisplay-${entry.id}`} className="areaOfStudyDisplay">{entry.areaOfStudy}</h3>
                     <h3 key={`graduationDateDisplay-${entry.id}`} className="graduationDateDisplay">{entry.graduationDate}</h3>
+                    <button className="deleteButton" onClick={() => deleteEducation(entry)}>Delete</button>
                 </div>
 
             )

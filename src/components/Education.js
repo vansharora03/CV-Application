@@ -20,6 +20,7 @@ export default class Education extends React.Component {
                 }
             }
             this.addEducation = this.addEducation.bind(this);
+            this.deleteEducation = this.deleteEducation.bind(this);
             this.handleChange = this.handleChange.bind(this);
     }
 
@@ -53,6 +54,14 @@ export default class Education extends React.Component {
         }))
     }
 
+    deleteEducation(education) {
+        this.setState({
+            educationList : this.state.educationList.filter(ed => {
+                return ed.id !== education.id;
+            })
+        })
+    }
+
 
     render() {
         //destructuring
@@ -62,7 +71,7 @@ export default class Education extends React.Component {
         //element to be shown if the property submitted is false
         const editable = (<div className="qualificationSection">
             <h1 className="title">Education</h1>
-            <EducationView educationList={educationList}/>
+            <EducationView educationList={educationList} deleteEducation={this.deleteEducation}/>
             <form className="educationForm">
                 <label className="schoolLabel">School<input value={education.school} onChange={this.handleChange} id="school"></input></label>
                 <label className="areaOfStudyLabel">Area of Study<input value={education.areaOfStudy} onChange={this.handleChange} id="areaOfStudy"></input></label>
