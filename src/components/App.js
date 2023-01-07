@@ -26,7 +26,7 @@ export default class App extends React.Component {
                 <Work submitted={submitted}/>
             </div>
             <div className="footer">
-                <button onClick={this.toggleSubmit}class="submitOrEdit">{submitted? "Edit" : "Submit"}</button>
+                <button onClick={this.toggleSubmit}className="submitOrEdit">{submitted? "Edit" : "Submit"}</button>
             </div>
         </div>
     )
