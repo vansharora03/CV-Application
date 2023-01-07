@@ -4,14 +4,21 @@ import Education from "./Education";
 import Work from "./Work";
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            submitted: false
+        }
+    }
 
   render() {
+    const { submitted} = this.state;
     return (
         <div className="App">
-            <PersonalInfo/>
+            <PersonalInfo submitted={submitted}/>
             <div className="content">
-                <Education/>
-                <Work/>
+                <Education submitted={submitted}/>
+                <Work submitted={submitted}/>
             </div>
             <div className="footer">
                 <button class="submitOrEdit">Submit</button>
