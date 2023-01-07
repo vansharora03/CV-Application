@@ -9,6 +9,11 @@ export default class App extends React.Component {
         this.state = {
             submitted: false
         }
+        this.toggleSubmit = this.toggleSubmit.bind(this);
+    }
+
+    toggleSubmit() {
+        this.setState({submitted: this.state.submitted? false: true});
     }
 
   render() {
@@ -21,7 +26,7 @@ export default class App extends React.Component {
                 <Work submitted={submitted}/>
             </div>
             <div className="footer">
-                <button class="submitOrEdit">Submit</button>
+                <button onClick={this.toggleSubmit}class="submitOrEdit">{submitted? "Edit" : "Submit"}</button>
             </div>
         </div>
     )
