@@ -54,6 +54,10 @@ export default class Education extends React.Component {
         }))
     }
 
+    /**
+     * Delete the desired education from the 
+     * state variable: educationList
+     */
     deleteEducation(education) {
         this.setState({
             educationList : this.state.educationList.filter(ed => {
