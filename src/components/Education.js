@@ -55,7 +55,10 @@ export default class Education extends React.Component {
             </form>
             <button onClick={this.addEducation} className="addEducationBtn">Add Education</button>
         </div>)
-        const notEditable = (<EducationView educationList={this.state.educationList}/>)
+        const notEditable = (<div className="qualificationSection">
+            <h1 className="title">Education</h1>
+            <EducationView educationList={this.state.educationList}/>
+        </div>)
 
         return submitted? notEditable : editable
     }
