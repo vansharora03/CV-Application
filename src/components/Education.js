@@ -3,11 +3,15 @@ import EducationView from "./EducationView";
 import uniqid from "uniqid";
 import '../styles/Education.css';
 
+
+
 export default class Education extends React.Component {
     constructor(props) {
             super(props);
             this.state = {
+                //stores the registered educations
                 educationList : [],
+                //stores current education
                 education: {
                     id: uniqid(),
                     school: '',
@@ -19,6 +23,9 @@ export default class Education extends React.Component {
             this.handleChange = this.handleChange.bind(this);
     }
 
+    /**
+     * Concatenates the current education to the education list (updates state)
+     */
     addEducation() {
         this.setState({
             educationList : this.state.educationList.concat(this.state.education),
@@ -31,6 +38,11 @@ export default class Education extends React.Component {
         })
     }
 
+    /**
+     * Depending on the input, updates a property of the current
+     * education
+     * @param {} e 
+     */
     handleChange(e) {
         this.setState(prevState => ({
             ...prevState,
@@ -43,8 +55,11 @@ export default class Education extends React.Component {
 
 
     render() {
+        //destructuring
         const {educationList, education} = this.state;
         const {submitted} = this.props;
+
+        //element to be shown if the property submitted is false
         const editable = (<div className="qualificationSection">
             <h1 className="title">Education</h1>
             <EducationView educationList={educationList}/>
@@ -55,11 +70,15 @@ export default class Education extends React.Component {
             </form>
             <button onClick={this.addEducation} className="addEducationBtn">Add Education</button>
         </div>)
+
+        //element to be shown if the property of submitted is true
         const notEditable = (<div className="qualificationSection">
             <h1 className="title">Education</h1>
             <EducationView educationList={this.state.educationList}/>
         </div>)
 
+        //ternary operatation to determine submitted value and 
+        //render the proper element
         return submitted? notEditable : editable
     }
 }
