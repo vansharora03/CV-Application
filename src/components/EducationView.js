@@ -18,7 +18,7 @@ export default class EducationView extends React.Component {
                 <div key={entry.id}className="educationEntry">
                     <h2 key={`schoolNameDisplay-${entry.id}`} className="schoolNameDisplay">{entry.school}</h2>
                     <h3 key={`areaOfStudyDisplay-${entry.id}`} className="areaOfStudyDisplay">{entry.areaOfStudy}</h3>
-                    <h3 key={`graduationDateDisplay-${entry.id}`} className="graduationDateDisplay">{entry.graduationDate}</h3>
+                    <h3 key={`graduationDateDisplay-${entry.id}`} className="graduationDateDisplay">{entry.graduationDate.substring(0, 4)}</h3>
                     {/**deleteButton uses the deleteEducation function 
                      * passed as a prop from parent state
                      */}
