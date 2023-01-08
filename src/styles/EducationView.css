@@ -9,6 +9,7 @@
     background-color: white;
     position: relative;
     height: 110px;
+    overflow-y: hidden;
 }
 
 .deleteButton {
