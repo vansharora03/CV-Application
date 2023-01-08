@@ -19,6 +19,7 @@ export default class Work extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.addWork = this.addWork.bind(this);
+        this.deleteWork = this.deleteWork.bind(this);
     }
 
     /**
@@ -55,6 +56,16 @@ export default class Work extends React.Component {
         })
     }
 
+    /**
+     * (State change) Delete the desired work list object from workList
+     * @param {} workToDelete 
+     */
+    deleteWork(workToDelete) {
+        this.setState({
+            workList: this.state.workList.filter(work => work.id!== workToDelete.id)
+        })
+    }
+
 
 
     render() {
@@ -63,7 +74,7 @@ export default class Work extends React.Component {
         //element in case prop submitted is false
         const editable = <div className="qualificationSection">
             <h2 className="title">Work Experience</h2>
-            <WorkView workList={workList}/>
+            <WorkView workList={workList} deleteWork={this.deleteWork}/>
             <form className="workForm">
                 <label className="companyLabel">Company<input onChange={this.handleChange} id="company" value={work.company}></input></label>
                 <label className="positionLabel">Position<input onChange={this.handleChange} id="position" value={work.position}></input></label>
@@ -77,7 +88,7 @@ export default class Work extends React.Component {
         //element in case prop submitted is true
         const notEditable = <div className="qualificationSection">
             <h2 className="title">Work Experience</h2>
-            <WorkView workList={workList}/>
+            <WorkView workList={workList} deleteWork={this.deleteWork}/>
         </div>
 
         //ternary operation determines which element
