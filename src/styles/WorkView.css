@@ -21,15 +21,6 @@
     font-weight: normal;
 }
 
-.deleteButton {
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    top: -2%;
-    right: 0%;
-    visibility: hidden;
-}
-
 .workEntry:hover .deleteButton {
     visibility: visible;
     color: red;
