@@ -22,7 +22,7 @@ export default class EducationView extends React.Component {
                     {/**deleteButton uses the deleteEducation function 
                      * passed as a prop from parent state
                      */}
-                    <button className="deleteButton" onClick={() => deleteEducation(entry)}>Delete</button>
+                    <button key={`deleteButton-${entry.id}`} className="deleteButton" onClick={() => deleteEducation(entry)}>Delete</button>
                 </div>
 
             )
