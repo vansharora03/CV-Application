@@ -1,5 +1,6 @@
 import React from "react";
 import WorkView from "./WorkView";
+import uniqid from "uniqid";
 
 export default class Work extends React.Component {
 
@@ -17,8 +18,15 @@ export default class Work extends React.Component {
             }
         }
         this.handleChange = this.handleChange.bind(this);
+        this.addWork = this.addWork.bind(this);
     }
 
+    /**
+     * Depending on the input, changes
+     * the appropriate property of
+     * the state object
+     * @param {*} e 
+     */
     handleChange(e) {
         this.setState(prevState => ({
             ...prevState,
@@ -29,27 +37,51 @@ export default class Work extends React.Component {
         }))
     }
 
+    /**
+     * Add current work state object to
+     * workList state array
+     */
+    addWork() {
+        this.setState({
+            workList: this.state.workList.concat(this.state.work),
+            work: {
+                id: uniqid(),
+                company: "",
+                position: "",
+                description: "",
+                startDate: "",
+                endDate: ""
+            }
+        })
+    }
+
 
 
     render() {
         const{workList, work} = this.state;
         const{submitted} = this.props;
+        //element in case prop submitted is false
         const editable = <div className="qualificationSection">
             <h2 className="title">Work Experience</h2>
             <WorkView workList={workList}/>
             <form className="workForm">
-                <label className="companyLabel">Company<input onChange={this.handleChange} id="company"></input></label>
-                <label className="positionLabel">Position<input onChange={this.handleChange} id="position"></input></label>
-                <label className="descriptionLabel">Description<input onChange={this.handleChange} id="description"></input></label>
-                <label className="startDateLabel">From<input onChange={this.handleChange} id="startDate" ></input ></label>
-                <label className="endDateLabel">To<input onChange={this.handleChange} id="endDate"></input></label>
+                <label className="companyLabel">Company<input onChange={this.handleChange} id="company" value={work.company}></input></label>
+                <label className="positionLabel">Position<input onChange={this.handleChange} id="position" value={work.position}></input></label>
+                <label className="descriptionLabel">Description<input onChange={this.handleChange} id="description" value={work.description}></input></label>
+                <label className="startDateLabel">From<input onChange={this.handleChange} id="startDate" value={work.startDate} type="date"></input ></label>
+                <label className="endDateLabel">To<input onChange={this.handleChange} id="endDate" value={work.endDate} type="date"></input></label>
             </form>
-            <button className="addWorkBtn">Add Work Experience</button>
+            <button onClick={this.addWork} className="addWorkBtn">Add Work Experience</button>
         </div>
+
+        //element in case prop submitted is true
         const notEditable = <div className="qualificationSection">
             <h2 className="title">Work Experience</h2>
             <WorkView workList={workList}/>
         </div>
+
+        //ternary operation determines which element
+        //to render
         return submitted ? notEditable : editable;
     }
 }
