@@ -11,6 +11,16 @@
     height: 200px
 }
 
+.dateDisplay {
+    color: crimson;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.descriptionDisplay {
+    font-weight: normal;
+}
+
 .deleteButton {
     background-color: transparent;
     border: none;
