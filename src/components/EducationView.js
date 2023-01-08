@@ -9,7 +9,7 @@ export default class EducationView extends React.Component {
 
     render() {
         //destructuring
-        const {educationList, deleteEducation} = this.props;
+        const {submitted, educationList, deleteEducation} = this.props;
 
         //map each entry of prop educationList and its props to
         //elements
@@ -22,7 +22,7 @@ export default class EducationView extends React.Component {
                     {/**deleteButton uses the deleteEducation function 
                      * passed as a prop from parent state
                      */}
-                    <button key={`deleteButton-${entry.id}`} className="deleteButton" onClick={() => deleteEducation(entry)}>Delete</button>
+                    <button data-submitted={submitted? 'yes' : 'no'} key={`deleteButton-${entry.id}`} className="deleteButton" onClick={() => deleteEducation(entry)}>x</button>
                 </div>
 
             )

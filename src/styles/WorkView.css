@@ -1,0 +1,14 @@
+.WorkView {
+    width: 400px;
+}
+
+.workEntry {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.deleteButton[data-submitted="yes"] {
+    display: none;
+}

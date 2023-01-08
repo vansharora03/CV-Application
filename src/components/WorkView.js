@@ -10,7 +10,7 @@ export default class WorkView extends React.Component {
 
     render() {
         //destructuring
-        const {workList, deleteWork} = this.props;
+        const {submitted, workList, deleteWork} = this.props;
 
         //map elements to each property for each item in workList
         const workEntries = workList.map(entry => {
@@ -24,7 +24,7 @@ export default class WorkView extends React.Component {
                      * prop to delete its
                      * current work entry
                      */}
-                     <button className="deleteButton" onClick={() => deleteWork(entry)}>Delete</button>
+                     <button data-submitted={submitted? 'yes' : 'no'} className="deleteButton" onClick={() => deleteWork(entry)}>x</button>
                 </div>
             )
         })

@@ -74,8 +74,8 @@ export default class Work extends React.Component {
         const{submitted} = this.props;
         //element in case prop submitted is false
         const editable = <div className="qualificationSection">
-            <h2 className="title">Work Experience</h2>
-            <WorkView workList={workList} deleteWork={this.deleteWork}/>
+            <h1 className="title">Work Experience</h1>
+            <WorkView submitted={submitted} workList={workList} deleteWork={this.deleteWork}/>
             <form className="workForm">
                 <label className="companyLabel">Company<input onChange={this.handleChange} id="company" value={work.company}></input></label>
                 <label className="positionLabel">Position<input onChange={this.handleChange} id="position" value={work.position}></input></label>
@@ -88,8 +88,8 @@ export default class Work extends React.Component {
 
         //element in case prop submitted is true
         const notEditable = <div className="qualificationSection">
-            <h2 className="title">Work Experience</h2>
-            <WorkView workList={workList} deleteWork={this.deleteWork}/>
+            <h1 className="title">Work Experience</h1>
+            <WorkView submitted={submitted} workList={workList} deleteWork={this.deleteWork}/>
         </div>
 
         //ternary operation determines which element

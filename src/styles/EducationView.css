@@ -8,3 +8,7 @@
     border: 1px solid black;
     background-color: white;
 }
+
+.deleteButton[data-submitted='yes'] {
+    display: none;
+}
