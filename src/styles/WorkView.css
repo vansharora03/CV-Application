@@ -5,8 +5,25 @@
 .workEntry {
     padding: 10px;
     margin: 10px;
-    border: 1px solid black;
+    border-left: 5px solid crimson;
     background-color: white;
+    position: relative;
+    height: 200px
+}
+
+.deleteButton {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: -2%;
+    right: 0%;
+    visibility: hidden;
+}
+
+.workEntry:hover .deleteButton {
+    visibility: visible;
+    color: red;
+    cursor: pointer;
 }
 
 .deleteButton[data-submitted="yes"] {

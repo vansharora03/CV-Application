@@ -63,7 +63,7 @@ export default class PersonalInfo extends React.Component {
         <div className="name">
             <h1 className="firstNameDisplay">{firstName}</h1>
 
-            <h1 htmlFor="lastNameDisplay">{lastName}</h1>
+            <h1 className="lastNameDisplay">{lastName}</h1>
         </div>
         <div className="miscInfo">
             <p className="emailDisplay">{email}</p>

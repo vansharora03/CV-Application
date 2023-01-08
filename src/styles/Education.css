@@ -9,8 +9,12 @@
 .educationForm {
     display: flex;
     flex-direction: column;
-    border: solid 1px black;
     padding: 10px;
+    margin-bottom: 10px;
+}
+
+.educationForm input {
+    width: 90%;
     margin-bottom: 10px;
 }
 
@@ -20,5 +24,19 @@ label, input {
 }
 
 .addEducationBtn {
-    width: 150px;
+    width: 200px;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.3rem;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}
+
+.addEducationBtn:hover {
+    cursor: pointer;
+    background-color: rgb(190, 17, 52);
+    color: white;
 }
