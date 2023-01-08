@@ -10,11 +10,16 @@
     padding-left: 10px;
     padding-right: 10px;
     display: flex;
+    flex-direction:  column;
     border-bottom: 1px solid white;
     justify-content: space-between;
     gap: 20px;
     padding-bottom: 10px;
     background-image: linear-gradient(crimson, darkred);
+}
+
+.name {
+    display: flex;
 }
 
 .header  {
@@ -35,7 +40,7 @@ lable[for="lastName"], #lastName {
 
 .miscInfo {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
 }
 
 input {
@@ -47,10 +52,13 @@ input {
     font-size: 1rem;
 }
 
+.name
+
 #firstName, #lastName {
     display: inline;
     font-size: 3rem;
     font-weight: bold;
+    width: 300px;
     margin: 5px;
 }
 
