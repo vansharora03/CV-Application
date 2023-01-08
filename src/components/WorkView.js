@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/WorkView.css';
 
 export default class WorkView extends React.Component {
 

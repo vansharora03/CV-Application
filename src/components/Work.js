@@ -1,6 +1,7 @@
 import React from "react";
 import WorkView from "./WorkView";
 import uniqid from "uniqid";
+import '../styles/Work.css';
 
 export default class Work extends React.Component {
 
